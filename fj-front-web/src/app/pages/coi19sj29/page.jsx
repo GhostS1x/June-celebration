@@ -172,7 +172,7 @@ export default function Comidas() {
         Voltar
       </button>
       <div className="lg:mt-[15rem] mt-[15rem] h-full my-[10rem]  lg:h-[40rem] lg:m-48">
-        <h1 className="text-2xl lg:text-3xl mt-[25rem]  lg:mt-0 font-bold mb-6">
+        <h1 className="text-2xl lg:text-3xl mt-[25rem] text-white lg:mt-0 font-bold mb-6">
           Conto com a colaboração de ocês
         </h1>
         <ul className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-4">
