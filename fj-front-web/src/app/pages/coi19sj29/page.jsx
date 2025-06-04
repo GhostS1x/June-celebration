@@ -174,6 +174,12 @@ export default function Comidas() {
         <h1 className="text-2xl lg:text-3xl mt-[25rem] text-white lg:mt-0 font-bold mb-6">
           Conto com a colaboração de ocês
         </h1>
+        <button
+        onClick={() => router.push("/pages/levados")}
+        className="fixed bottom-20 right-6 md:hidden bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg z-50"
+      >
+        Ver Pratos Levados
+      </button>
         <ul className="grid grid-cols-2 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {Array.isArray(alimentos) &&
             alimentos.map((item) => (
@@ -201,12 +207,7 @@ export default function Comidas() {
             ))}
         </ul>
       </div>
-      <button
-        onClick={() => router.push("/pages/levados")}
-        className="fixed bottom-20 right-6 md:hidden bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg z-50"
-      >
-        Ver Pratos Levados
-      </button>
+      
       <div className="absolute bottom-0 w-full h-24 z-10">
         <div className="h-1/2 bg-green-600 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full flex justify-between">

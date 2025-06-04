@@ -24,7 +24,15 @@ export const alimentos = [
 export let levados = [];
 
 export function addLevar(item) {
-  if (item === "Prato típico") {
+  if (item === "Prato típico"
+     || item === "Caldo de mocotó"
+     || item === "Refrigerate" 
+     || item === "Canjica" 
+     || item === "Arroz doce"
+     || item === "Caldo de kenga"
+     || item === "Caldo verde" 
+     || item === "Quentão" 
+     || item === "Vinho quente" ) {
     levados.push(item);
   } else if (!levados.includes(item)) {
     levados.push(item);
