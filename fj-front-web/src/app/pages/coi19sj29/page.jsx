@@ -179,7 +179,8 @@ export default function Comidas() {
             alimentos.map((item) => (
               <li
                 key={item}
-                className="bg-yellow-100  w-56 p-4 grid grid-cols-1 rounded-md shadow-md h-36 items-center"
+                className="bg-yellow-100  w-5
+                46 p-4 grid grid-cols-1 rounded-md shadow-md h-36 items-center"
               >
                 <span className="text-black">{item}</span>
                 <button
