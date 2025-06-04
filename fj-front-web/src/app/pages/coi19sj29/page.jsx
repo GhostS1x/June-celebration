@@ -8,7 +8,7 @@ export default function Comidas() {
   const [levados, setLevados] = useState([]);
 
   useEffect(() => {
-    fetch("http://192.168.1.104:3001/alimentos")
+    fetch("/api/alimentos")
       .then((res) => res.json())
       .then((data) => {
         setAlimentos(Array.isArray(data.alimentos) ? data.alimentos : []);
@@ -22,14 +22,13 @@ export default function Comidas() {
   }, []);
 
   const handleLevar = async (item) => {
-    await fetch("http://192.168.1.104:3001/levar", {
+    await fetch("/api/levar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ item }),
     });
 
-    // Atualiza a lista após marcar
-    const res = await fetch("http://192.168.1.104:3001/alimentos");
+    const res = await fetch("/api/alimentos");
     const data = await res.json();
     setAlimentos(data.alimentos);
     setLevados(data.levados);
@@ -184,16 +183,19 @@ export default function Comidas() {
               >
                 <span className="text-black">{item}</span>
                 <button
-                    disabled={item !== "Prato típico" && levados.includes(item)}
-                    onClick={() => handleLevar(item)}
-                    className={`px-4 py-2 rounded ${
+                  disabled={item !== "Prato típico" && levados.includes(item)}
+                  onClick={() => handleLevar(item)}
+                  className={`px-4 py-2 rounded ${
                     item !== "Prato típico" && levados.includes(item)
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-green-600 hover:bg-green-700 text-white"
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-green-600 hover:bg-green-700 text-white"
                   }`}
-                    >
-                    {item === "Prato típico" ? "Vou Levar" : levados.includes(item) ? "Já foi" : "Vou Levar"}
-                  
+                >
+                  {item === "Prato típico"
+                    ? "Vou Levar"
+                    : levados.includes(item)
+                    ? "Já foi"
+                    : "Vou Levar"}
                 </button>
               </li>
             ))}
@@ -216,6 +218,5 @@ export default function Comidas() {
         <div className="h-1/2 bg-[#8B4513]" />
       </div>
     </main>
-    
   );
 }
