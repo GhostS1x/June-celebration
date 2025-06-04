@@ -170,7 +170,7 @@ export default function Comidas() {
       >
         Voltar
       </button>
-      <div className="lg:mt-[15rem] mt-[15rem] h-full my-[10rem]  lg:h-[45rem] lg:m-48">
+      <div className="lg:mt-[15rem] mt-[15rem] h-full my-[10rem]  lg:h-[55rem] lg:m-48">
         <h1 className="text-2xl lg:text-3xl mt-[25rem] text-white lg:mt-0 font-bold mb-6">
           Conto com a colaboração de ocês
         </h1>
