@@ -194,7 +194,7 @@ export default function Comidas() {
             Ver Pratos Levados
           </button>
         </div>
-        <ul className="grid h-[20rem] py-10 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <ul className="justify-items-center grid py-5 grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {Array.isArray(alimentos) &&
             alimentos.map((item) => {
               const semLimite = itensSemLimite.includes(item);
@@ -204,7 +204,7 @@ export default function Comidas() {
               return (
                 <li
                   key={item}
-                  className="bg-yellow-100 w-46 mx-4 p-4 grid grid-cols-1 rounded-md shadow-md h-36 items-center"
+                  className="bg-yellow-100 w-42 p-4 grid grid-cols-1 rounded-md shadow-md h-36 items-center"
                 >
                   <span className="text-black">{item}</span>
                   <button
