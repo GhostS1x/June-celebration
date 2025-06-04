@@ -17,6 +17,7 @@ export const alimentos = [
   "Pastel",
   "Pipoca",
   "Vinho quente",
+  "Paçoca",
   "Prato típico",
 ];
 
