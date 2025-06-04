@@ -201,6 +201,12 @@ export default function Comidas() {
             ))}
         </ul>
       </div>
+      <button
+        onClick={() => router.push("/pages/levados")}
+        className="fixed bottom-20 right-6 md:hidden bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg z-50"
+      >
+        Ver Pratos Levados
+      </button>
       <div className="absolute bottom-0 w-full h-24 z-10">
         <div className="h-1/2 bg-green-600 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full flex justify-between">
