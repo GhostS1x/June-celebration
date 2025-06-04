@@ -13,12 +13,6 @@ export default function Bloqueado() {
         <p className="text-lg mb-6">
           Você não tem permissão para acessar esta página.
         </p>
-        <a
-          href="/"
-          className="bg-red-800 text-white px-6 py-2 rounded hover:bg-red-900 transition"
-        >
-          Voltar para a página inicial
-        </a>
       </div>
     </>
   );
