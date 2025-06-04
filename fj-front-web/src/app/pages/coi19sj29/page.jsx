@@ -7,6 +7,18 @@ export default function Comidas() {
   const [alimentos, setAlimentos] = useState([]);
   const [levados, setLevados] = useState([]);
 
+  const itensSemLimite = [
+    "Prato típico",
+    "Caldo de mocotó",
+    "Refrigerate",
+    "Canjica",
+    "Arroz doce",
+    "Caldo de kenga",
+    "Caldo verde",
+    "Quentão",
+    "Vinho quente",
+  ];
+
   useEffect(() => {
     fetch("/api/alimentos")
       .then((res) => res.json())
@@ -171,43 +183,46 @@ export default function Comidas() {
         Voltar
       </button>
       <div className="lg:mt-[15rem] mt-[15rem] h-full my-[10rem]  lg:h-[60rem] lg:m-48">
-        <h1 className="text-2xl lg:text-3xl mt-[25rem] text-white lg:mt-0 font-bold mb-6">
+        <h1 className=" text-2xl lg:text-3xl mt-[25rem] text-white lg:mt-0 font-bold mb-6">
           Conto com a colaboração de ocês
         </h1>
-        <button
-        onClick={() => router.push("/pages/levados")}
-        className="fixed bottom-20 right-6 md:hidden bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg z-50"
-      >
-        Ver Pratos Levados
-      </button>
-        <ul className="grid grid-cols-2 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid justify-items-center">
+          <button
+            onClick={() => router.push("/pages/levados")}
+            className="bottom-20 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg z-50"
+          >
+            Ver Pratos Levados
+          </button>
+        </div>
+        <ul className="grid h-[20rem] py-10 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {Array.isArray(alimentos) &&
-            alimentos.map((item) => (
-              <li
-                key={item}
-                className="bg-yellow-100  w-46 mx-2 p-4 grid grid-cols-1 rounded-md shadow-md h-36 items-center"
-              >
-                <span className="text-black">{item}</span>
-                <button
-                  disabled={item !== "Prato típico" && levados.includes(item)}
-                  onClick={() => handleLevar(item)}
-                  className={`px-4 py-2 rounded ${
-                    item !== "Prato típico" && levados.includes(item)
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-green-600 hover:bg-green-700 text-white"
-                  }`}
+            alimentos.map((item) => {
+              const semLimite = itensSemLimite.includes(item);
+              const jaFoi = levados.includes(item);
+              const desabilitado = !semLimite && jaFoi;
+
+              return (
+                <li
+                  key={item}
+                  className="bg-yellow-100 w-46 mx-4 p-4 grid grid-cols-1 rounded-md shadow-md h-36 items-center"
                 >
-                  {item === "Prato típico"
-                    ? "Vou Levar"
-                    : levados.includes(item)
-                    ? "Já foi"
-                    : "Vou Levar"}
-                </button>
-              </li>
-            ))}
+                  <span className="text-black">{item}</span>
+                  <button
+                    disabled={desabilitado}
+                    onClick={() => handleLevar(item)}
+                    className={`px-4 py-2 rounded ${
+                      desabilitado
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-green-600 hover:bg-green-700 text-white"
+                    }`}
+                  >
+                    {desabilitado ? "Já foi" : "Vou Levar"}
+                  </button>
+                </li>
+              );
+            })}
         </ul>
       </div>
-      
       <div className="absolute bottom-0 w-full h-24 z-10">
         <div className="h-1/2 bg-green-600 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full flex justify-between">
