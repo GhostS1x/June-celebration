@@ -154,7 +154,7 @@ export default function Home() {
           />
         </div>
       </div>
-      
+      <audio src="/musica.mp3" autoPlay loop />
       <div className="absolute esconder-no-celular left-10 mt-[35em]">
         <div className="absolute esconder-no-celular left-10 top-40 w-26 h-26 bg-red-500 rounded-full blur-3xl opacity-100 animate-pulse -z-10">
           {" "}
