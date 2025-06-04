@@ -1,5 +1,3 @@
-// lib/data.js
-
 export const alimentos = [
   "Bolos",
   "Cachorro-quente",
@@ -11,7 +9,7 @@ export const alimentos = [
   "Caldo verde",
   "Doces",
   "Salgados",
-  "Refrigerante",
+  "Refrigerante", // Corrigido aqui
   "Caldo de mocotó",
   "Quentão",
   "Pastel",
@@ -24,17 +22,11 @@ export const alimentos = [
 export let levados = [];
 
 export function addLevar(item) {
-  if (item === "Prato típico"
-     || item === "Caldo de mocotó"
-     || item === "Refrigerate" 
-     || item === "Canjica" 
-     || item === "Arroz doce"
-     || item === "Caldo de kenga"
-     || item === "Caldo verde" 
-     || item === "Quentão" 
-     || item === "Vinho quente" ) {
-    levados.push(item);
-  } else if (!levados.includes(item)) {
+  // Se quiser permitir múltiplos:
+  // levados.push(item);
+
+  // Se quiser único por item:
+  if (!levados.includes(item)) {
     levados.push(item);
   }
 }
