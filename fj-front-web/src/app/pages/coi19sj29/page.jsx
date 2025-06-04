@@ -174,7 +174,7 @@ export default function Comidas() {
         <h1 className="text-2xl lg:text-3xl mt-[25rem] text-white lg:mt-0 font-bold mb-6">
           Conto com a colaboração de ocês
         </h1>
-        <ul className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ul className="grid grid-cols-2 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.isArray(alimentos) &&
             alimentos.map((item) => (
               <li
