@@ -1,8 +1,10 @@
+// src/app/api/supabase/route.js
+
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY 
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 )
 
 const alimentos = [
@@ -26,13 +28,13 @@ const alimentos = [
   "Prato típico",
 ]
 
-export default async function handler(req, res) {
+export async function GET() {
   for (const nome of alimentos) {
     const { error } = await supabase.from('alimentos').insert([{ nome }])
     if (error) {
-      return res.status(500).json({ message: `Erro ao inserir ${nome}`, error })
+      return Response.json({ message: `Erro ao inserir ${nome}`, error }, { status: 500 })
     }
   }
 
-  res.status(200).json({ message: 'Todos os alimentos foram inseridos com sucesso!' })
+  return Response.json({ message: 'Todos os alimentos foram inseridos com sucesso!' })
 }
